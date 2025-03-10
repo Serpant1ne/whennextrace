@@ -5,5 +5,6 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxt/fonts', '@nuxtjs/supabase'],
   supabase: {
     redirect: false,
+
   }
 })

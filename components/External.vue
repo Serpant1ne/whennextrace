@@ -1,5 +1,5 @@
 <template>
-  <a class="underline decoration-dashed underline-offset-4 hover:opacity-80"
+  <a class="underline underline-offset-2 hover:opacity-80 transition-opacity"
     ><slot></slot
   ></a>
 </template>

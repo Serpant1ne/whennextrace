@@ -1,15 +1,32 @@
 <template>
   <button
-    class="py-2 px-4 border rounded-lg font-medium text-gray-500 border-gray-500 w-fit hover:border-red-500 hover:text-red-500 transition-all data-[state]:bg-red-500 active:text-white active:border-red-500">
-    Formula 1
+    class="items-center border border-gray-300 rounded text-sm transition-all outline-none flex pl-3 font-medium gap-3"
+    :class="currentMainStyle"
+    @click="series.selected = !series.selected">
+    {{ series.name }}
+    <div
+      class="h-full w-6 items-center flex py-2 rounded-r-sm transition-all bg-opacity-50"
+      :class="currentIconStyle">
+      <X class="size-4 mx-auto" v-if="!series.selected" />
+      <Check class="size-4 mx-auto" v-if="series.selected" />
+    </div>
   </button>
 </template>
 
 <script lang="ts" setup>
-const active = ref(false);
+import type { SeriesModified } from "@/types/supabase";
+import { X, Check } from "lucide-vue-next";
 
-const currentStyle = computed(() => {
-  return active ? "text-gray-50" : "";
+const series = defineModel<SeriesModified>({ required: true });
+
+const currentMainStyle = computed(() => {
+  return series.value.selected
+    ? "bg-green-100 border-green-300 hover:bg-green-200"
+    : "bg-transparent hover:bg-gray-100";
+});
+
+const currentIconStyle = computed(() => {
+  return series.value.selected ? "bg-green-300" : "bg-gray-300 ";
 });
 </script>
 
