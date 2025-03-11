@@ -9,8 +9,16 @@
   </p>
   <p class="mb-2">
     If you want to contribute - check
-    <External href="#">this</External>. If you found a problem / want to give an
-    idea - go <External href="#">here</External>. Enjoy!
+    <NuxtLink
+      to="#"
+      class="underline underline-offset-2 hover:opacity-80 transition-opacity"
+      >this</NuxtLink
+    >. If you found a problem / want to give an idea - go
+    <NuxtLink
+      href="#"
+      class="underline underline-offset-2 hover:opacity-80 transition-opacity"
+      >here</NuxtLink
+    >. Enjoy!
   </p>
   <NuxtLink
     href="/"

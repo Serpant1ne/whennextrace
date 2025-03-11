@@ -6,8 +6,8 @@
         <Toggle v-model="series[i]" v-for="(item, i) in series" />
       </div>
       <p class="mt-2">2. Click "Get Calendar"</p>
-      <Button variant="primary" class="flex gap-2">
-        Get calendar <ArrowUpFromLine class="size-4" />
+      <Button variant="primary" class="flex gap-2" @click="getCalendarFile">
+        Get calendar <CalendarArrowDown class="size-4" />
       </Button>
       <p class="mt-2">3. Import to the calendar app of your choice. Enjoy!</p>
     </div>
@@ -19,24 +19,31 @@
 
 <script lang="ts" setup>
 import type { SeriesModified } from "@/types/supabase";
-import { supabase } from "../utils/supabase";
-import { ArrowUpFromLine } from "lucide-vue-next";
+import { CalendarArrowDown } from "lucide-vue-next";
 
 const series = ref<SeriesModified[]>([]);
 
-async function getSeries() {
-  const { data, error } = await supabase.from("series").select();
-  console.log(data);
-  if (error) {
-    throw error;
-  }
-  data.forEach((item) => (item.selected = false));
-  series.value = data;
+const { data } = await useFetch("/api/getSeries");
+if (data.value != null) {
+  series.value = data.value;
 }
 
-onMounted(() => {
-  getSeries();
-});
+async function getCalendarFile() {
+  let selectedIds: Number[] = [];
+
+  series.value.forEach((item) => {
+    if (item.selected) {
+      selectedIds.push(item.id);
+    }
+  });
+
+  const { data } = await useFetch("/api/createCalendarFile", {
+    method: "post",
+    body: {
+      ids: selectedIds,
+    },
+  });
+}
 </script>
 
 <style>

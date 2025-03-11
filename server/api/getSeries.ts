@@ -1,15 +1,11 @@
-export default defineEventHandler(async (event) => {
-  return [
-    {
-      id: 1,
-      name: "Formula 1"
-    }, {
-      id: 2,
-      name: "WEC"
-    },
-    {
-      id: 3,
-      name: "WRC"
-    }
-  ]
+import { supabase } from "@/utils/supabase";
+import { SeriesModified } from "~/types/supabase";
+
+export default defineEventHandler(async (event): Promise<SeriesModified[]> => {
+  const { data, error } = await supabase.from("series").select();
+  if (error) {
+    throw error;
+  }
+  data.forEach((item) => (item.selected = false));
+  return data;
 })
