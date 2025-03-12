@@ -1,6 +1,6 @@
 <template>
   <button
-    class="items-center border border-gray-300 rounded text-sm transition-all outline-none flex pl-3 font-medium gap-3"
+    class="items-center border border-gray-300 rounded text-sm transition-all flex pl-3 font-medium gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-300"
     :class="currentMainStyle"
     @click="series.selected = !series.selected">
     {{ series.name }}
