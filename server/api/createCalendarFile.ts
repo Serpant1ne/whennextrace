@@ -8,19 +8,12 @@ async function getData(filter: Number[]) {
   if (error) {
     throw error;
   }
+  console.log(data)
   return data
 }
 
 export default defineEventHandler(async (event): Promise<string> => {
   const body = await readBody(event)
-  let filter = ""
-  body.ids.forEach((id: Number) => {
-    filter = filter + 'series_id.eq.' + id + ','
-  });
-  filter = filter.slice(0, -1);
-
-
-  // const data = await getData(filter)
   const data = await getData(body.ids)
 
 
@@ -39,14 +32,14 @@ export default defineEventHandler(async (event): Promise<string> => {
       event = {
         start: Date.parse(session.start),
         startInputType: 'utc',
-        title: session.name + ' - ' + session.type,
+        title: session.name + ' - ' + session.session_type,
         duration: { hours: parseInt(timeData[0]), minutes: parseInt(timeData[1]), seconds: parseInt(timeData[2]) }
       }
     } else if (session.finish) {
       event = {
         start: Date.parse(session.start),
         startInputType: 'utc',
-        title: session.name + ' - ' + session.type,
+        title: session.name + ' - ' + session.session_type,
         end: Date.parse(session.finish),
         endInputType: 'utc'
       }
