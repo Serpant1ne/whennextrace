@@ -1,75 +1,17 @@
-# Nuxt Minimal Starter
+# WhenNextRace
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A tool to quickly find information about upcoming motorsport events.
 
-## Setup
+# Overview
 
-Make sure to install dependencies:
+WhenNextRace is a simple, fast utility that helps motorsport enthusiasts get every racing calendar in your favorite calendar app! Whether you're following Formula 1, MotoGP, WEC, IMSA or all of them at the same time, Whennextrace can help you.
 
-```bash
-# npm
-npm install
+# Supported Racing Series
 
-# pnpm
-pnpm install
+- Formula 1
+- WEC
+- ...and more to come!
 
-# yarn
-yarn install
+# Contributing
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+You can help making this project. Please check [this file](/contribution.md) to know more
