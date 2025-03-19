@@ -7,7 +7,7 @@
       <Separator />
       <a href="#" class="text-gray-400 hover:opacity-80">contribution</a>
       <Separator />
-      <a href="#" class="text-gray-400 hover:opacity-80">legal</a>
+      <a href="/legal" class="text-gray-400 hover:opacity-80">legal</a>
       <Separator />
       <a href="" class="text-gray-400 hover:opacity-80">github</a>
       <Separator />
